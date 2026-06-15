@@ -3,9 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Título da aba -->
   <title>UniCloud – Sua Nuvem Privada</title>
+
+  <!-- FAVICON (use a mesma logo) -->
+  <link rel="icon" href="assets/img/unicloud.png" type="image/png" />
+  <!-- Opcional: melhora em iOS/atalhos (se quiser, gere um PNG 180x180 e aponte aqui) -->
+  <!-- <link rel="apple-touch-icon" href="assets/img/unicloud-180.png" /> -->
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -38,12 +47,14 @@
       gap: 22px;
     }
 
+    /* Logo maior para compensar a remoção do título */
     .hero img {
-      width: 100px;
+      width: 160px; /* ajuste aqui se quiser maior/menor */
       height: auto;
-      filter: drop-shadow(0 0 22px rgba(41,121,255,0.45));
+      filter: drop-shadow(0 0 28px rgba(41,121,255,0.45));
     }
 
+    /* Mantido caso você volte a usar algum h1 no futuro */
     .hero h1 {
       font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 800;
@@ -320,25 +331,36 @@
       .steps-track::before { display: none; }
       .steps-bar, .footer { padding-left: 24px; padding-right: 24px; }
       .info-screen { padding: 40px 24px; }
+
+      /* Ajuste da logo no mobile */
+      .hero img { width: 140px; }
     }
 
     @media (max-width: 480px) {
       .steps-track { grid-template-columns: 1fr; }
+
+      /* Ajuste da logo no mobile menor */
+      .hero img { width: 130px; }
     }
   </style>
 </head>
+
 <body>
 
   <!-- ══ HERO ══ -->
   <section class="hero">
     <img src="assets/img/unicloud.png" alt="UniCloud"/>
-    <h1>Uni<span>Cloud</span></h1>
+
+    <!-- Removido: título duplicado (já está na logo) -->
+    <!-- <h1>Uni<span>Cloud</span></h1> -->
+
     <p>Sua nuvem privada do <strong>Grupo Unifit</strong> — armazene, sincronize e colabore com segurança.</p>
+
     <div class="hero-btns">
-      <a href="https://cloud.grupounifit.com.br" target="_blank" class="btn-primary">
+      <a href="https://cloud.grupounifit.com.br" target="_blank" class="btn-primary" rel="noopener noreferrer">
         <i class="fa-solid fa-cloud"></i> Acessar UniCloud
       </a>
-      <a href="https://wa.me/5518996842555?text=Olá!%20Tenho%20interesse%20na%20UniCloud." target="_blank" class="btn-outline">
+      <a href="https://wa.me/5518996842555?text=Olá!%20Tenho%20interesse%20na%20UniCloud." target="_blank" class="btn-outline" rel="noopener noreferrer">
         <i class="fa-brands fa-whatsapp"></i> Contratar / Suporte
       </a>
     </div>
@@ -417,15 +439,16 @@
         </div>
       </div>
 
-     <div class="info-row" style="margin-top:14px;">
-  <div class="key">Contratação</div>
-  <div class="val">
-    Todos os planos são contratados diretamente pelo WhatsApp. Fale com nosso time:
-    <div style="margin-top:10px; text-align:center; font-size:1.1rem; font-weight:700; color:#ffffff; letter-spacing:0.5px;">
-      <i class="fa-brands fa-whatsapp" style="color:#00b4d8; margin-right:8px;"></i>(18) 99684-2555
+      <div class="info-row" style="margin-top:14px;">
+        <div class="key">Contratação</div>
+        <div class="val">
+          Todos os planos são contratados diretamente pelo WhatsApp. Fale com nosso time:
+          <div style="margin-top:10px; text-align:center; font-size:1.1rem; font-weight:700; color:#ffffff; letter-spacing:0.5px;">
+            <i class="fa-brands fa-whatsapp" style="color:#00b4d8; margin-right:8px;"></i>(18) 99684-2555
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
     <!-- Segurança -->
     <div class="info-block">
@@ -485,8 +508,8 @@
   <div class="footer">
     <p>© 2026 <strong>Grupo Unifit</strong> — UniCloud. Todos os direitos reservados.</p>
     <div style="display:flex;gap:20px;">
-      <a href="https://wa.me/5518996842555" target="_blank"><i class="fa-brands fa-whatsapp"></i> (18) 99684-2555</a>
-      <a href="https://www.grupounifit.com.br" target="_blank">grupounifit.com.br</a>
+      <a href="https://wa.me/5518996842555" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> (18) 99684-2555</a>
+      <a href="https://www.grupounifit.com.br" target="_blank" rel="noopener noreferrer">grupounifit.com.br</a>
     </div>
   </div>
 
