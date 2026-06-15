@@ -3,18 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <!-- Título da aba -->
   <title>UniCloud – Sua Nuvem Privada</title>
-
-  <!-- FAVICON (use a mesma logo) -->
   <link rel="icon" href="assets/img/unicloud.png" type="image/png" />
-  <!-- Opcional: melhora em iOS/atalhos (se quiser, gere um PNG 180x180 e aponte aqui) -->
-  <!-- <link rel="apple-touch-icon" href="assets/img/unicloud-180.png" /> -->
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -37,7 +29,6 @@
       flex-direction: column;
     }
 
-    /* ── HERO: logo + botão de acesso ── */
     .hero {
       display: flex;
       flex-direction: column;
@@ -47,20 +38,11 @@
       gap: 22px;
     }
 
-    /* Logo maior para compensar a remoção do título */
     .hero img {
-      width: 160px; /* ajuste aqui se quiser maior/menor */
+      width: 160px;
       height: auto;
       filter: drop-shadow(0 0 28px rgba(41,121,255,0.45));
     }
-
-    /* Mantido caso você volte a usar algum h1 no futuro */
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-    .hero h1 span { color: var(--ciano); }
 
     .hero p {
       color: var(--cinza-claro);
@@ -114,14 +96,12 @@
       justify-content: center;
     }
 
-    /* ── DIVISOR ── */
     .divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--azul-borda), transparent);
       margin: 0 60px;
     }
 
-    /* ── TELA DE INFORMAÇÕES ── */
     .info-screen {
       max-width: 960px;
       margin: 0 auto;
@@ -137,7 +117,6 @@
       margin-bottom: 28px;
     }
 
-    /* blocos de info: label + valor, linha por linha */
     .info-block {
       margin-bottom: 48px;
     }
@@ -160,9 +139,7 @@
       align-items: start;
     }
 
-    .info-row:last-child {
-      border-bottom: none;
-    }
+    .info-row:last-child { border-bottom: none; }
 
     .info-row .key {
       font-size: 0.82rem;
@@ -179,9 +156,7 @@
       line-height: 1.55;
     }
 
-    .info-row .val strong {
-      color: var(--branco);
-    }
+    .info-row .val strong { color: var(--branco); }
 
     .tag {
       display: inline-block;
@@ -195,10 +170,10 @@
       margin: 2px 4px 2px 0;
     }
 
-    /* planos inline */
+    /* planos inline — agora 2 colunas + card personalizado */
     .planos-inline {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 0;
       border: 1px solid var(--azul-borda);
       border-radius: 10px;
@@ -237,6 +212,71 @@
       margin-right: 4px;
     }
 
+    /* ── Card "Plano Personalizado" ── */
+    .plano-custom-wrapper {
+      margin-top: 12px;
+      border: 1px dashed var(--azul-neon);
+      border-radius: 10px;
+      padding: 24px 28px;
+      background: rgba(41,121,255,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .plano-custom-wrapper .custom-texto {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .plano-custom-wrapper .custom-titulo {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--cinza);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .plano-custom-wrapper .custom-headline {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--branco);
+      line-height: 1.4;
+    }
+
+    .plano-custom-wrapper .custom-desc {
+      font-size: 0.82rem;
+      color: var(--cinza-claro);
+      line-height: 1.6;
+      max-width: 480px;
+    }
+
+    .btn-custom {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: transparent;
+      color: var(--ciano);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 11px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid var(--ciano);
+      white-space: nowrap;
+      transition: background .2s, color .2s;
+      flex-shrink: 0;
+    }
+    .btn-custom:hover {
+      background: rgba(0,180,216,0.12);
+      color: #fff;
+    }
+
     /* ── PASSO A PASSO HORIZONTAL ── */
     .steps-bar {
       border-top: 1px solid var(--azul-borda);
@@ -259,7 +299,6 @@
       position: relative;
     }
 
-    /* linha conectora */
     .steps-track::before {
       content: '';
       position: absolute;
@@ -331,16 +370,15 @@
       .steps-track::before { display: none; }
       .steps-bar, .footer { padding-left: 24px; padding-right: 24px; }
       .info-screen { padding: 40px 24px; }
-
-      /* Ajuste da logo no mobile */
       .hero img { width: 140px; }
+      .plano-custom-wrapper { flex-direction: column; align-items: flex-start; }
+      .btn-custom { width: 100%; justify-content: center; }
     }
 
     @media (max-width: 480px) {
       .steps-track { grid-template-columns: 1fr; }
-
-      /* Ajuste da logo no mobile menor */
       .hero img { width: 130px; }
+      .planos-inline { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -350,12 +388,7 @@
   <!-- ══ HERO ══ -->
   <section class="hero">
     <img src="assets/img/unicloud.png" alt="UniCloud"/>
-
-    <!-- Removido: título duplicado (já está na logo) -->
-    <!-- <h1>Uni<span>Cloud</span></h1> -->
-
     <p>Sua nuvem privada do <strong>Grupo Unifit</strong> — armazene, sincronize e colabore com segurança.</p>
-
     <div class="hero-btns">
       <a href="https://cloud.grupounifit.com.br" target="_blank" class="btn-primary" rel="noopener noreferrer">
         <i class="fa-solid fa-cloud"></i> Acessar UniCloud
@@ -407,6 +440,7 @@
     <div class="info-block">
       <h2>Planos disponíveis</h2>
 
+      <!-- Apenas 2 planos fixos -->
       <div class="planos-inline">
         <div class="plano">
           <div class="nome">Básico</div>
@@ -427,16 +461,22 @@
             <div><i class="fa-solid fa-check"></i> 2FA habilitado</div>
           </div>
         </div>
-        <div class="plano">
-          <div class="nome">Empresarial</div>
-          <div class="armazenamento">2 TB</div>
-          <div class="recursos">
-            <div><i class="fa-solid fa-check"></i> Tudo do Profissional</div>
-            <div><i class="fa-solid fa-check"></i> Múltiplos usuários</div>
-            <div><i class="fa-solid fa-check"></i> Gestão de permissões</div>
-            <div><i class="fa-solid fa-check"></i> Suporte prioritário</div>
+      </div>
+
+      <!-- Card plano personalizado -->
+      <div class="plano-custom-wrapper">
+        <div class="custom-texto">
+          <div class="custom-titulo">Necessidade além do padrão?</div>
+          <div class="custom-headline">Seu espaço, do seu jeito — montamos o plano ideal para você.</div>
+          <div class="custom-desc">
+            Se a sua demanda vai além dos planos acima, não se adapte a uma caixa que não é sua.
+            Converse com a nossa equipe e criaremos juntos uma solução sob medida — com o armazenamento,
+            os recursos e as condições que fazem sentido para o seu caso.
           </div>
         </div>
+        <a href="https://wa.me/5518996842555?text=Olá!%20Preciso%20de%20um%20plano%20personalizado%20na%20UniCloud." target="_blank" class="btn-custom" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp"></i> Falar com a equipe
+        </a>
       </div>
 
       <div class="info-row" style="margin-top:14px;">
