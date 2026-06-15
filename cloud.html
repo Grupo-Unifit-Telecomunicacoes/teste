@@ -4,9 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>UniCloud – Sua Nuvem Privada</title>
+
+  <!-- FAVICON -->
   <link rel="icon" href="assets/img/unicloud.png" type="image/png" />
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -29,6 +33,7 @@
       flex-direction: column;
     }
 
+    /* ── HERO: logo + botão de acesso ── */
     .hero {
       display: flex;
       flex-direction: column;
@@ -96,12 +101,14 @@
       justify-content: center;
     }
 
+    /* ── DIVISOR ── */
     .divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--azul-borda), transparent);
       margin: 0 60px;
     }
 
+    /* ── TELA DE INFORMAÇÕES ── */
     .info-screen {
       max-width: 960px;
       margin: 0 auto;
@@ -138,7 +145,6 @@
       border-bottom: 1px solid rgba(26,58,92,0.35);
       align-items: start;
     }
-
     .info-row:last-child { border-bottom: none; }
 
     .info-row .key {
@@ -149,13 +155,11 @@
       letter-spacing: .5px;
       padding-top: 2px;
     }
-
     .info-row .val {
       font-size: 0.93rem;
       color: var(--cinza-claro);
       line-height: 1.55;
     }
-
     .info-row .val strong { color: var(--branco); }
 
     .tag {
@@ -170,7 +174,7 @@
       margin: 2px 4px 2px 0;
     }
 
-    /* planos inline — agora 2 colunas + card personalizado */
+    /* ── PLANOS ── */
     .planos-inline {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -199,12 +203,55 @@
       font-size: 1.5rem;
       font-weight: 800;
       color: var(--ciano);
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
+
+    /* Preços */
+    .precos {
+      margin: 8px 0 14px;
+    }
+    .preco-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding: 6px 0;
+      border-bottom: 1px dashed rgba(26,58,92,0.45);
+    }
+    .preco-row:last-child { border-bottom: none; }
+    .preco-label {
+      font-size: 0.78rem;
+      color: var(--cinza);
+      text-transform: uppercase;
+      letter-spacing: .6px;
+    }
+    .preco-valor {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--branco);
+    }
+    .preco-valor small {
+      font-weight: 600;
+      color: var(--cinza-claro);
+      font-size: 0.74rem;
+      margin-left: 8px;
+      white-space: nowrap;
+    }
+
+    .portalnet {
+      font-size: 0.78rem;
+      color: var(--cinza-claro);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .portalnet strong { color: var(--ciano); font-weight: 700; }
+    .portalnet small { color: var(--cinza); }
+
     .plano .recursos {
       font-size: 0.78rem;
       color: var(--cinza);
       line-height: 1.6;
+      margin-top: 8px;
     }
     .plano .recursos i {
       color: var(--ciano);
@@ -225,7 +272,6 @@
       gap: 24px;
       flex-wrap: wrap;
     }
-
     .plano-custom-wrapper .custom-texto {
       display: flex;
       flex-direction: column;
@@ -233,7 +279,6 @@
       flex: 1;
       min-width: 200px;
     }
-
     .plano-custom-wrapper .custom-titulo {
       font-size: 0.78rem;
       font-weight: 700;
@@ -241,21 +286,18 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-
     .plano-custom-wrapper .custom-headline {
       font-size: 1.05rem;
       font-weight: 700;
       color: var(--branco);
       line-height: 1.4;
     }
-
     .plano-custom-wrapper .custom-desc {
       font-size: 0.82rem;
       color: var(--cinza-claro);
       line-height: 1.6;
-      max-width: 480px;
+      max-width: 680px;
     }
-
     .btn-custom {
       display: inline-flex;
       align-items: center;
@@ -298,7 +340,6 @@
       grid-template-columns: repeat(4, 1fr);
       position: relative;
     }
-
     .steps-track::before {
       content: '';
       position: absolute;
@@ -319,7 +360,6 @@
       position: relative;
       z-index: 1;
     }
-
     .step-num {
       width: 36px;
       height: 36px;
@@ -333,13 +373,11 @@
       font-weight: 700;
       color: var(--azul-neon);
     }
-
     .step h4 {
       font-size: 0.82rem;
       font-weight: 600;
       color: var(--branco);
     }
-
     .step p {
       font-size: 0.75rem;
       color: var(--cinza);
@@ -440,20 +478,53 @@
     <div class="info-block">
       <h2>Planos disponíveis</h2>
 
-      <!-- Apenas 2 planos fixos -->
       <div class="planos-inline">
+
+        <!-- Plano 50 GB -->
         <div class="plano">
           <div class="nome">Básico</div>
           <div class="armazenamento">50 GB</div>
+
+          <div class="precos">
+            <div class="preco-row">
+              <span class="preco-label">Mensal</span>
+              <span class="preco-valor">R$ 14,90</span>
+            </div>
+            <div class="preco-row">
+              <span class="preco-label">Anual</span>
+              <span class="preco-valor">R$ 129,90 <small>(R$ 10,83/mês; pague 10, receba 12 meses)</small></span>
+            </div>
+            <div class="portalnet">
+              Clientes PortalNet pagam: <strong>R$ 10,90/mês</strong> • <strong>R$ 109,90/ano</strong> <small>(R$ 9,16/mês; pague 10, receba 12 meses)</small>
+            </div>
+          </div>
+
           <div class="recursos">
             <div><i class="fa-solid fa-check"></i> Acesso web e app</div>
             <div><i class="fa-solid fa-check"></i> Sincronização automática</div>
             <div><i class="fa-solid fa-check"></i> Suporte via WhatsApp</div>
           </div>
         </div>
+
+        <!-- Plano 200 GB -->
         <div class="plano destaque">
           <div class="nome">Profissional ★</div>
-          <div class="armazenamento">500 GB</div>
+          <div class="armazenamento">200 GB</div>
+
+          <div class="precos">
+            <div class="preco-row">
+              <span class="preco-label">Mensal</span>
+              <span class="preco-valor">R$ 29,90</span>
+            </div>
+            <div class="preco-row">
+              <span class="preco-label">Anual</span>
+              <span class="preco-valor">R$ 249,90 <small>(R$ 20,83/mês; pague 10, receba 12 meses)</small></span>
+            </div>
+            <div class="portalnet">
+              Clientes PortalNet pagam: <strong>R$ 24,90/mês</strong> • <strong>R$ 224,90/ano</strong> <small>(R$ 18,74/mês; pague 10, receba 12 meses)</small>
+            </div>
+          </div>
+
           <div class="recursos">
             <div><i class="fa-solid fa-check"></i> Tudo do Básico</div>
             <div><i class="fa-solid fa-check"></i> Edição de docs online</div>
@@ -461,6 +532,7 @@
             <div><i class="fa-solid fa-check"></i> 2FA habilitado</div>
           </div>
         </div>
+
       </div>
 
       <!-- Card plano personalizado -->
@@ -469,12 +541,11 @@
           <div class="custom-titulo">Necessidade além do padrão?</div>
           <div class="custom-headline">Seu espaço, do seu jeito — montamos o plano ideal para você.</div>
           <div class="custom-desc">
-            Se a sua demanda vai além dos planos acima, não se adapte a uma caixa que não é sua.
-            Converse com a nossa equipe e criaremos juntos uma solução sob medida — com o armazenamento,
-            os recursos e as condições que fazem sentido para o seu caso.
+            Se você precisa de mais de <strong>200 GB</strong>, não se limite aos planos prontos. Fale com a nossa equipe e
+            criaremos juntos uma solução sob medida — com o armazenamento, os recursos e as condições que fazem sentido para o seu caso.
           </div>
         </div>
-        <a href="https://wa.me/5518996842555?text=Olá!%20Preciso%20de%20um%20plano%20personalizado%20na%20UniCloud." target="_blank" class="btn-custom" rel="noopener noreferrer">
+        <a href="https://wa.me/5518996842555?text=Olá!%20Preciso%20de%20um%20plano%20personalizado%20(mais%20de%20200%20GB)%20na%20UniCloud." target="_blank" class="btn-custom" rel="noopener noreferrer">
           <i class="fa-brands fa-whatsapp"></i> Falar com a equipe
         </a>
       </div>
