@@ -1,0 +1,519 @@
+<section class="unicloud" id="unicloud" aria-label="UniCloud - Nuvem do Grupo Unifit">
+  <style>
+    :root{
+      --uc-bg: #070A0F;
+      --uc-surface: rgba(255,255,255,.06);
+      --uc-surface-2: rgba(255,255,255,.10);
+      --uc-border: rgba(255,255,255,.14);
+      --uc-text: rgba(255,255,255,.92);
+      --uc-muted: rgba(255,255,255,.72);
+
+      /* Paleta (azuis da logo + laranja de destaque) */
+      --uc-blue-1:#00C8FF;
+      --uc-blue-2:#0A5BFF;
+      --uc-orange-1:#FF7A18;
+      --uc-orange-2:#FFB24A;
+
+      --uc-green:#36E39A;
+      --uc-shadow: 0 16px 40px rgba(0,0,0,.45);
+      --uc-radius: 18px;
+      --uc-max: 1100px;
+      --uc-font: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    .unicloud{
+      font-family: var(--uc-font);
+      background:
+        radial-gradient(1100px 650px at 70% 18%, rgba(10,91,255,.28), transparent 55%),
+        radial-gradient(900px 520px at 28% 35%, rgba(0,200,255,.22), transparent 55%),
+        radial-gradient(900px 520px at 85% 65%, rgba(255,122,24,.14), transparent 60%),
+        radial-gradient(700px 420px at 20% 78%, rgba(255,178,74,.10), transparent 60%),
+        linear-gradient(180deg, #05070B 0%, #070A0F 45%, #05070B 100%);
+      color: var(--uc-text);
+      padding: 56px 18px;
+    }
+
+    .unicloud__wrap{ max-width: var(--uc-max); margin: 0 auto; }
+
+    .unicloud__hero{
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 900px){ .unicloud__hero{ grid-template-columns: 1fr; } }
+
+    .unicloud__brand{ display:flex; gap:16px; align-items:center; }
+
+    .unicloud__logo{
+      width: 92px; height: 92px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--uc-border);
+      box-shadow: var(--uc-shadow);
+      overflow: hidden;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+    /* brilho sutil com azul + laranja */
+    .unicloud__logo::after{
+      content:"";
+      position:absolute; inset:-30%;
+      background: conic-gradient(from 180deg, rgba(0,200,255,.0), rgba(0,200,255,.18), rgba(255,122,24,.16), rgba(10,91,255,.18), rgba(0,200,255,.0));
+      filter: blur(14px);
+      opacity:.55;
+      pointer-events:none;
+    }
+    .unicloud__logo img{
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display:block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .unicloud__title h2{
+      margin:0;
+      font-size: clamp(28px, 4vw, 40px);
+      letter-spacing: .2px;
+      line-height: 1.05;
+    }
+    .unicloud__title p{
+      margin: 8px 0 0 0;
+      color: var(--uc-muted);
+      font-size: 15.5px;
+      line-height: 1.45;
+      max-width: 60ch;
+    }
+
+    .unicloud__ctaCard{
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border: 1px solid var(--uc-border);
+      border-radius: var(--uc-radius);
+      box-shadow: var(--uc-shadow);
+      padding: 18px;
+    }
+
+    .unicloud__badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom: 12px;
+    }
+    .badge{
+      font-size: 12.5px;
+      color: rgba(255,255,255,.88);
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      padding: 7px 10px;
+      border-radius: 999px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      white-space: nowrap;
+    }
+    .dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--uc-blue-1), var(--uc-blue-2));
+      box-shadow: 0 0 0 3px rgba(0,200,255,.12);
+      display:inline-block;
+    }
+    /* variação laranja (para alguns badges) */
+    .dot--orange{
+      background: linear-gradient(135deg, var(--uc-orange-1), var(--uc-orange-2));
+      box-shadow: 0 0 0 3px rgba(255,122,24,.12);
+    }
+
+    .unicloud__grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 16px 0 24px 0;
+    }
+    @media (max-width: 900px){ .unicloud__grid{ grid-template-columns: 1fr; } }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid var(--uc-border);
+      border-radius: var(--uc-radius);
+      box-shadow: var(--uc-shadow);
+      padding: 18px;
+    }
+    .card h3{ margin:0 0 10px 0; font-size: 18px; letter-spacing:.2px; }
+    .card p{ margin: 0; color: var(--uc-muted); line-height: 1.5; font-size: 14.5px; }
+
+    .features{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    @media (max-width: 560px){ .features{ grid-template-columns: 1fr; } }
+
+    .feature{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      padding: 12px;
+      border-radius: 14px;
+    }
+    .feature strong{ display:block; font-size: 14px; margin-bottom: 5px; }
+    .feature span{ display:block; color: var(--uc-muted); font-size: 13.5px; line-height: 1.4; }
+
+    .unicloud__ctaRow{
+      display:flex;
+      gap:10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .btn{
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.92);
+      text-decoration:none;
+      padding: 10px 12px;
+      border-radius: 12px;
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.28); }
+
+    .btn--primary{
+      background: linear-gradient(135deg, rgba(0,200,255,.22), rgba(10,91,255,.22));
+      border-color: rgba(0,200,255,.35);
+    }
+    .btn--accent{
+      background: linear-gradient(135deg, rgba(255,122,24,.20), rgba(255,178,74,.16));
+      border-color: rgba(255,122,24,.35);
+    }
+
+    .plans{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (max-width: 900px){ .plans{ grid-template-columns: 1fr; } }
+
+    .plan{ position: relative; overflow:hidden; }
+
+    .plan__top{
+      display:flex;
+      justify-content: space-between;
+      align-items:flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .plan__name{ margin:0; font-size: 18px; }
+    .plan__storage{ margin: 6px 0 0 0; color: var(--uc-muted); font-size: 13.5px; }
+
+    .tag{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.9);
+      white-space: nowrap;
+    }
+
+    .priceBox{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    @media (max-width: 560px){ .priceBox{ grid-template-columns: 1fr; } }
+
+    .price{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .price small{ display:block; color: var(--uc-muted); margin-bottom: 6px; font-size: 12.5px; }
+    .price strong{ display:block; font-size: 18px; letter-spacing:.2px; }
+    .price em{ display:block; font-style: normal; color: rgba(255,255,255,.78); font-size: 12.5px; margin-top: 6px; line-height: 1.35; }
+
+    .note{
+      margin-top: 12px;
+      font-size: 12.5px;
+      color: rgba(255,255,255,.70);
+      line-height: 1.4;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .step{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .step__num{
+      width: 28px; height: 28px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(255,122,24,.22), rgba(0,200,255,.18));
+      border: 1px solid rgba(255,122,24,.28);
+      display:grid;
+      place-items:center;
+      font-weight: 800;
+      color: rgba(255,255,255,.92);
+      flex: 0 0 auto;
+    }
+    .step__txt strong{ display:block; font-size: 14px; margin-bottom: 4px; }
+    .step__txt span{ display:block; color: var(--uc-muted); font-size: 13.5px; line-height: 1.4; }
+
+    .unicloud__footer{
+      margin-top: 18px;
+      color: rgba(255,255,255,.7);
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+
+    .unicloud a{ color: rgba(255,255,255,.92); }
+    .unicloud a:hover{ color: white; }
+
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12.5px;
+      padding: 2px 6px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      display:inline-block;
+    }
+  </style>
+
+  <div class="unicloud__wrap">
+    <div class="unicloud__hero">
+      <div>
+        <div class="unicloud__brand">
+          <div class="unicloud__logo" aria-label="Logo UniCloud">
+            <img src="/assets/img/unicloud.png" alt="UniCloud" loading="lazy">
+          </div>
+
+          <div class="unicloud__title">
+            <h2>UniCloud</h2>
+            <p>
+              Sua nuvem privada do <strong>Grupo Unifit</strong> para guardar arquivos com praticidade,
+              sincronizar entre dispositivos e colaborar com segurança.<br>
+              <span class="badge" style="margin-top:10px;"><span class="dot"></span> Tráfego ilimitado (especialmente para clientes PortalNet)</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="unicloud__grid" style="margin-top:18px;">
+          <div class="card">
+            <h3>Segurança & privacidade</h3>
+            <p>Armazenamento e sincronização com foco em proteção dos seus dados e controle de acesso.</p>
+
+            <div class="features">
+              <div class="feature">
+                <strong>Criptografia ponta‑a‑ponta (E2EE)</strong>
+                <span>Proteção de ponta a ponta para conteúdos/pastas compatíveis no cliente.</span>
+              </div>
+              <div class="feature">
+                <strong>2FA opcional (fortemente recomendado)</strong>
+                <span>Dupla verificação via app autenticador (ex.: Google Authenticator / Microsoft Authenticator).</span>
+              </div>
+              <div class="feature">
+                <strong>Conexão segura</strong>
+                <span>Acesso via HTTPS/TLS e boas práticas de autenticação.</span>
+              </div>
+              <div class="feature">
+                <strong>Recuperação</strong>
+                <span>Lixeira e versões de arquivos para reverter alterações e exclusões.</span>
+              </div>
+              <div class="feature">
+                <strong>Compartilhamento com permissão</strong>
+                <span>Controle por usuário, pastas e links, conforme configuração.</span>
+              </div>
+              <div class="feature">
+                <strong>Gestão centralizada</strong>
+                <span>Ambiente administrável para organização e políticas.</span>
+              </div>
+            </div>
+
+            <p class="note">
+              O <strong>2FA é opcional, mas fortemente recomendado</strong>. A criptografia ponta‑a‑ponta (E2EE) depende do uso do app/recursos compatíveis.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Produtividade integrada</h3>
+            <p>Além de armazenar arquivos, a UniCloud oferece ferramentas para organização e comunicação.</p>
+
+            <div class="features">
+              <div class="feature">
+                <strong>E-mail incorporado</strong>
+                <span>Integração com <strong>Gmail</strong> e outros provedores (conforme disponibilidade).</span>
+              </div>
+              <div class="feature">
+                <strong>Calendário & contatos</strong>
+                <span>Sincronização e gestão centralizada.</span>
+              </div>
+              <div class="feature">
+                <strong>Mensagens criptografadas</strong>
+                <span>Privacidade na comunicação (dependendo do módulo).</span>
+              </div>
+              <div class="feature">
+                <strong>Vídeo & chamadas Wi‑Fi</strong>
+                <span>Recursos de reuniões virtuais.</span>
+              </div>
+              <div class="feature">
+                <strong>Suporte 24h</strong>
+                <span>Atendimento online para dúvidas e configuração.</span>
+              </div>
+              <div class="feature">
+                <strong>Apps</strong>
+                <span>Uso no celular e computador, com sincronização automática.</span>
+              </div>
+            </div>
+
+            <div class="unicloud__ctaRow">
+              <a class="btn btn--primary" href="https://cloud.grupounifit.com.br" target="_blank" rel="noopener">Acessar UniCloud</a>
+              <a class="btn btn--accent" href="https://wa.me/5518996842555" target="_blank" rel="noopener">Contratar / Suporte (WhatsApp)</a>
+              <a class="btn" href="#unicloud-planos">Ver planos</a>
+            </div>
+
+            <p class="note">
+              Para contratar um plano e receber seu usuário/senha de acesso, fale com a gente no WhatsApp.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="unicloud__ctaCard" aria-label="Destaques UniCloud">
+        <div class="unicloud__badges">
+          <span class="badge"><span class="dot"></span> Nuvem privada</span>
+          <span class="badge"><span class="dot"></span> Acesso em qualquer lugar</span>
+          <span class="badge"><span class="dot"></span> Sincronização</span>
+          <span class="badge"><span class="dot"></span> Compartilhamento</span>
+          <span class="badge"><span class="dot dot--orange"></span> Contratação e suporte no WhatsApp</span>
+        </div>
+
+        <div class="card" style="padding:16px; margin:0;">
+          <h3 style="margin-bottom:8px;">Como conectar (Nextcloud)</h3>
+          <p style="margin-bottom:10px;">Passo a passo:</p>
+
+          <div class="steps" aria-label="Passo a passo de conexão">
+            <div class="step">
+              <div class="step__num">1</div>
+              <div class="step__txt">
+                <strong>Baixe o app</strong>
+                <span>Procure por <span class="kbd">Nextcloud</span> na Play Store / App Store e instale.</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step__num">2</div>
+              <div class="step__txt">
+                <strong>Informe a URL</strong>
+                <span>Digite: <span class="kbd">cloud.grupounifit.com.br</span></span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step__num">3</div>
+              <div class="step__txt">
+                <strong>Entre com usuário e senha</strong>
+                <span>Use o usuário e senha informados após a contratação do plano.</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step__num">4</div>
+              <div class="step__txt">
+                <strong>Pronto!</strong>
+                <span>Escolha pastas, envie e acesse seus arquivos.</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="note">Dica: ative o upload automático de fotos no app.</p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="card" id="unicloud-planos" aria-label="Planos UniCloud">
+      <h3>Planos e valores</h3>
+      <p>Escolha o seu plano. Para clientes <strong>PortalNet</strong>, valores especiais.</p>
+
+      <div class="plans">
+        <article class="card plan" aria-label="Plano Básico 50GB">
+          <div class="plan__top">
+            <div>
+              <h4 class="plan__name">Plano Básico</h4>
+              <div class="plan__storage">50 GB de armazenamento</div>
+            </div>
+            <div class="tag">Ideal para uso pessoal</div>
+          </div>
+
+          <div class="priceBox" role="group" aria-label="Preços Plano Básico">
+            <div class="price">
+              <small>Público</small>
+              <strong>R$ 14,90/mês</strong>
+              <em>ou <strong>R$ 129,90/ano</strong></em>
+            </div>
+            <div class="price">
+              <small>Cliente PortalNet</small>
+              <strong>R$ 10,90/mês</strong>
+              <em>ou <strong>R$ 109,90/ano</strong></em>
+            </div>
+          </div>
+
+          <p class="note">Tráfego ilimitado e compartilhamento com permissões.</p>
+        </article>
+
+        <article class="card plan" aria-label="Plano Pessoal 200GB">
+          <div class="plan__top">
+            <div>
+              <h4 class="plan__name">Plano Pessoal</h4>
+              <div class="plan__storage">200 GB de armazenamento</div>
+            </div>
+            <div class="tag" style="border-color: rgba(255,122,24,.38); background: rgba(255,122,24,.10);">Mais espaço</div>
+          </div>
+
+          <div class="priceBox" role="group" aria-label="Preços Plano Pessoal">
+            <div class="price">
+              <small>Público</small>
+              <strong>R$ 29,90/mês</strong>
+              <em>ou <strong>R$ 249,90/ano</strong></em>
+            </div>
+            <div class="price">
+              <small>Cliente PortalNet</small>
+              <strong>R$ 24,90/mês</strong>
+              <em>ou <strong>R$ 224,90/ano</strong></em>
+            </div>
+          </div>
+
+          <p class="note">Ótimo para sincronizar mídias e vários dispositivos.</p>
+        </article>
+      </div>
+
+      <div class="unicloud__ctaRow" style="margin-top:14px;">
+        <a class="btn btn--primary" href="https://cloud.grupounifit.com.br" target="_blank" rel="noopener">Acessar UniCloud</a>
+        <a class="btn btn--accent" href="https://wa.me/5518996842555" target="_blank" rel="noopener" aria-label="Contratar ou falar com o suporte via WhatsApp">
+          Contratar / Suporte (WhatsApp)
+        </a>
+      </div>
+
+      <div class="unicloud__footer">
+        Para contratar, tirar dúvidas e receber seu acesso, fale no WhatsApp:
+        <strong>(18) 99684-2555</strong>.
+      </div>
+    </div>
+  </div>
+</section>
