@@ -95,9 +95,38 @@
       min-width: 300px;
       box-shadow: 0 1px 20px 0 rgba(138,79,255, 0.13);
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
+      gap: 22px;
       position: relative;
+    }
+
+    /* Imagem lateral da câmera */
+    .produto-imagem {
+      flex: 0 0 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .produto-imagem img {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 16px rgba(24,174,220,0.22));
+      border-radius: 10px;
+    }
+
+    .produto-card.lente-dupla .produto-imagem img {
+      filter: drop-shadow(0 4px 16px rgba(138,79,255,0.28));
+    }
+
+    /* Conteúdo textual do card */
+    .produto-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .produto-card.lente-dupla .destaque {
@@ -105,63 +134,42 @@
     }
 
     .produto-titulo {
-      font-size: 1.28rem;
+      font-size: 1.18rem;
       font-weight: 700;
       margin-bottom: 6px;
       display: flex;
-      align-items: center;
-      gap: 10px;
-      text-align: center;
-      justify-content: center;
+      flex-direction: column;
+      gap: 2px;
     }
 
     .destaque {
       color: var(--azul);
       font-weight: 600;
       font-size: 1.00rem;
-      margin-bottom: 12px;
     }
 
     .precos-produto {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       color: var(--branco);
-      font-size: 1.03rem;
-      text-align: center;
-      line-height: 1.35;
+      font-size: 1.00rem;
+      line-height: 1.5;
     }
 
     .precos-produto b {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
     }
 
     .produto-carac {
-      font-size: 0.99rem;
+      font-size: 0.92rem;
       color: #dbedff;
       margin-bottom: 7px;
-      text-align: center;
-      line-height: 1.35;
+      line-height: 1.5;
     }
 
     .obs-parcelado {
-      margin-top: 7px;
-      font-size: 0.96rem;
+      margin-top: 5px;
+      font-size: 0.88rem;
       color: #a3a8bb;
-      text-align: center;
-    }
-
-    /* Ícones minimalistas (SVG) */
-    .icone-produto {
-      width: 26px;
-      height: 26px;
-      stroke: var(--azul);
-      opacity: 0.95;
-      filter: drop-shadow(0 2px 10px rgba(24,174,220,.18));
-      flex: 0 0 auto;
-    }
-
-    .produto-card.lente-dupla .icone-produto {
-      stroke: var(--roxo);
-      filter: drop-shadow(0 2px 10px rgba(138,79,255,.18));
     }
 
     .armazenamento-titulo {
@@ -307,8 +315,10 @@
 
     @media (max-width: 900px) {
       .produtos, .armazenamento-cards { flex-direction: column; align-items: center; }
-      .produto-card, .armazenamento-card { width: 96%; min-width: 220px; }
-      .produto-titulo { flex-wrap: wrap; }
+      .produto-card { width: 96%; min-width: 220px; flex-direction: column; text-align: center; }
+      .produto-info { align-items: center; }
+      .produto-titulo { align-items: center; }
+      .produto-carac { text-align: center; }
     }
   </style>
 </head>
@@ -326,65 +336,57 @@
   </div>
 
   <div class="produtos" id="locacao">
+
     <!-- Lente Única -->
     <div class="produto-card">
-      <div class="produto-titulo">
-        <!-- Tabler camera (estilo minimalista) - SVG inline (confiável, sem dependência externa) -->
-        <svg class="icone-produto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-             fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
-             aria-hidden="true" focusable="false">
-          <path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-16a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2" />
-          <path d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-        </svg>
-        Câmera Wi‑Fi <span class="destaque">Lente Única</span>
+      <div class="produto-imagem">
+        <img src="assets/img/camera_unica.png" alt="Câmera Lente Única">
       </div>
-
-      <div class="precos-produto">
-        <b>Locação:</b> R$ 34,90/mês <br>
-        <b id="compra">Venda:</b> R$ 220,00 <span style="font-size:0.98rem;font-weight:500;">à vista</span>
+      <div class="produto-info">
+        <div class="produto-titulo">
+          Câmera Wi‑Fi
+          <span class="destaque">Lente Única</span>
+        </div>
+        <div class="precos-produto">
+          <b>Locação:</b> R$ 34,90/mês <br>
+          <b id="compra">Venda:</b> R$ 220,00 <span style="font-size:0.95rem;font-weight:500;">à vista</span>
+        </div>
+        <div class="produto-carac">
+          - Imagem em alta definição<br>
+          - Áudio bidirecional<br>
+          - Visão noturna<br>
+          - Notificações no celular<br>
+          - Instalação e configuração assistida
+        </div>
+        <div class="obs-parcelado">Parcelado sujeito a taxas/juros.</div>
       </div>
-
-      <div class="produto-carac">
-        - Imagem em alta definição<br>
-        - Áudio bidirecional<br>
-        - Visão noturna<br>
-        - Notificações no celular<br>
-        - Instalação e configuração assistida
-      </div>
-
-      <div class="obs-parcelado">Parcelado sujeito a taxas/juros.</div>
     </div>
 
     <!-- Lente Dupla -->
     <div class="produto-card lente-dupla">
-      <div class="produto-titulo">
-        <!-- Tabler device-cctv (minimalista, segurança) - SVG inline -->
-        <svg class="icone-produto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-             fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
-             aria-hidden="true" focusable="false">
-          <path d="M8 13l-2 -2h-3v9h3l2 -2h10l3 -3v-4l-3 -3z" />
-          <path d="M14 13h2" />
-          <path d="M9 8v-2a2 2 0 0 1 2 -2h3" />
-          <path d="M6 19v2" />
-        </svg>
-        Câmera Wi‑Fi <span class="destaque">Lente Dupla</span>
+      <div class="produto-imagem">
+        <img src="assets/img/camera_dupla.png" alt="Câmera Lente Dupla">
       </div>
-
-      <div class="precos-produto">
-        <b>Locação:</b> R$ 39,90/mês <br>
-        <b>Venda:</b> R$ 250,00 <span style="font-size:0.98rem;font-weight:500;">à vista</span>
+      <div class="produto-info">
+        <div class="produto-titulo">
+          Câmera Wi‑Fi
+          <span class="destaque">Lente Dupla</span>
+        </div>
+        <div class="precos-produto">
+          <b>Locação:</b> R$ 39,90/mês <br>
+          <b>Venda:</b> R$ 250,00 <span style="font-size:0.95rem;font-weight:500;">à vista</span>
+        </div>
+        <div class="produto-carac">
+          - Uma lente fixa e outra giratória (até 270°)<br>
+          - Cobre múltiplos ambientes<br>
+          - Alta definição, áudio bidirecional<br>
+          - Visão noturna, notificações<br>
+          - Instalação e configuração assistida
+        </div>
+        <div class="obs-parcelado">Parcelado sujeito a taxas/juros.</div>
       </div>
-
-      <div class="produto-carac">
-        - Uma lente fixa e outra giratória (até 270°)<br>
-        - Cobre múltiplos ambientes<br>
-        - Alta definição, áudio bidirecional<br>
-        - Visão noturna, notificações<br>
-        - Instalação e configuração assistida
-      </div>
-
-      <div class="obs-parcelado">Parcelado sujeito a taxas/juros.</div>
     </div>
+
   </div>
 
   <div class="armazenamento-titulo" id="armazenamento">Armazenamento em Nuvem (Gravações)</div>
@@ -394,12 +396,10 @@
       <span class="dias">3 dias</span>
       <div class="preco"><span>R$ 14,99</span> /câmera/mês</div>
     </div>
-
     <div class="armazenamento-card">
       <span class="dias">7 dias</span>
       <div class="preco"><span>R$ 24,99</span> /câmera/mês</div>
     </div>
-
     <div class="armazenamento-card">
       <span class="dias">15 dias</span>
       <div class="preco"><span>R$ 49,99</span> /câmera/mês</div>
@@ -420,7 +420,7 @@
       <li><i class="fa-solid fa-moon"></i> Visão noturna automática</li>
       <li><i class="fa-solid fa-bell"></i> Notificações de movimento</li>
       <li><i class="fa-solid fa-wrench"></i> Instalação e suporte especializado</li>
-      <li><i class="fa-solid fa-camera"></i> Lente dupla: uma fixa e uma com giro de até 270° (mais cobertura)</li>
+      <li><i class="fa-solid fa-camera"></i> Lente dupla: uma fixa e uma com giro de até 270°</li>
     </ul>
   </div>
 
@@ -431,11 +431,11 @@
       <i class="fab fa-whatsapp"></i>
       Falar no WhatsApp
     </a>
-
     <div class="addr">
       <i class="fa-solid fa-location-dot"></i>
       Praça Dr. Carlos Sampaio Filho, 163 — Penápolis/SP
     </div>
   </footer>
+
 </body>
 </html>
