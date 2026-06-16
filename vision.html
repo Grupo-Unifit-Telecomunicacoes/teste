@@ -15,6 +15,56 @@
       --roxo: #8a4fff;
       --cinza: #232643;
     }
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #10131f;
+  border-bottom: 2px solid #5256e7;
+  padding: 10px 28px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 12px 0 rgba(24,174,220,0.10);
+}
+
+.nav-header .nav-logo img {
+  height: 42px;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(90deg, var(--azul) 60%, var(--roxo) 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.97rem;
+  padding: 9px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: filter 0.18s;
+  white-space: nowrap;
+}
+
+.nav-voltar:hover {
+  filter: brightness(1.15);
+}
+
+@media (max-width: 600px) {
+  .nav-header {
+    padding: 9px 14px;
+  }
+  .nav-header .nav-logo img {
+    height: 32px;
+  }
+  .nav-voltar {
+    font-size: 0.88rem;
+    padding: 8px 14px;
+  }
+}
 
     body {
       background: var(--preto);
@@ -325,6 +375,17 @@
 </head>
 
 <body>
+  
+  <nav class="nav-header">
+  <a class="nav-logo" href="https://www.grupounifit.com.br" target="_blank" rel="noopener">
+    <img src="assets/img/logo-unifit.png" alt="Grupo Unifit">
+  </a>
+  <a class="nav-voltar" href="https://www.grupounifit.com.br">
+    <i class="fa-solid fa-arrow-left"></i>
+    Voltar ao início
+  </a>
+</nav>
+
   <div class="header">
     <img src="assets/img/univision.png" alt="Logo UniVision">
     <div class="engajamento">
