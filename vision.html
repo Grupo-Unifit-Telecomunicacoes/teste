@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UniVision – Segurança Wi-Fi e Gravação em Nuvem</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root {
+      --azul: #18aedc;
+      --preto: #0b0f1a;
+      --branco: #fff;
+      --roxo: #8a4fff;
+      --cinza: #232643;
+    }
+
+    body {
+      background: var(--preto);
+      color: var(--branco);
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 16px 12px 16px;
+    }
+
+    .header img {
+      width: 190px;
+      margin-bottom: 16px;
+    }
+
+    .engajamento {
+      font-size: 1.40rem;
+      color: var(--azul);
+      font-weight: 600;
+      margin-bottom: 26px;
+      text-align: center;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 8px rgba(24,174,220,0.13), 0 1px 0 var(--preto);
+      max-width: 980px;
+      line-height: 1.25;
+    }
+
+    .botoes-hero {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 35px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .botoes-hero a {
+      padding: 13px 34px;
+      font-size: 1.12rem;
+      font-weight: 700;
+      border-radius: 32px;
+      text-decoration: none;
+      background: linear-gradient(90deg, var(--azul) 63%, var(--roxo) 100%);
+      color: var(--branco);
+      box-shadow: 0 1px 8px 0 rgba(24,174,220, 0.11);
+      border: none;
+      transition: filter 0.18s;
+      margin-bottom: 7px;
+    }
+
+    .botoes-hero a.comprar {
+      background: linear-gradient(90deg, var(--roxo) 60%, var(--azul) 100%);
+    }
+
+    .botoes-hero a:hover {
+      filter: brightness(1.12);
+    }
+
+    .produtos {
+      max-width: 1020px;
+      margin: 0 auto 64px auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      align-items: stretch;
+      padding: 0 14px;
+    }
+
+    .produto-card {
+      background: var(--cinza);
+      border-radius: 18px;
+      padding: 28px 26px 24px 26px;
+      flex: 1 1 320px;
+      min-width: 300px;
+      box-shadow: 0 1px 20px 0 rgba(138,79,255, 0.13);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .produto-card.lente-dupla .destaque {
+      color: var(--roxo);
+    }
+
+    .produto-titulo {
+      font-size: 1.28rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .destaque {
+      color: var(--azul);
+      font-weight: 600;
+      font-size: 1.00rem;
+      margin-bottom: 12px;
+    }
+
+    .precos-produto {
+      margin-bottom: 12px;
+      color: var(--branco);
+      font-size: 1.03rem;
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    .precos-produto b {
+      font-size: 1.15rem;
+    }
+
+    .produto-carac {
+      font-size: 0.99rem;
+      color: #dbedff;
+      margin-bottom: 7px;
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    .obs-parcelado {
+      margin-top: 7px;
+      font-size: 0.96rem;
+      color: #a3a8bb;
+      text-align: center;
+    }
+
+    /* Ícones minimalistas (SVG) */
+    .icone-produto {
+      width: 26px;
+      height: 26px;
+      stroke: var(--azul);
+      opacity: 0.95;
+      filter: drop-shadow(0 2px 10px rgba(24,174,220,.18));
+      flex: 0 0 auto;
+    }
+
+    .produto-card.lente-dupla .icone-produto {
+      stroke: var(--roxo);
+      filter: drop-shadow(0 2px 10px rgba(138,79,255,.18));
+    }
+
+    .armazenamento-titulo {
+      margin: 65px auto 24px auto;
+      font-size: 1.25rem;
+      color: var(--azul);
+      letter-spacing: 0.3px;
+      text-align: center;
+      font-weight: 700;
+      padding: 0 14px;
+    }
+
+    .armazenamento-cards {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+      padding: 0 14px;
+    }
+
+    .armazenamento-card {
+      background: var(--cinza);
+      border-radius: 12px;
+      padding: 22px 24px 18px 24px;
+      text-align: center;
+      min-width: 200px;
+      box-shadow: 0 2px 12px 0 rgba(138,79,255, 0.09);
+      flex: 1 1 200px;
+      max-width: 240px;
+    }
+
+    .armazenamento-card .dias {
+      font-size: 1.15rem;
+      color: var(--roxo);
+      font-weight: 700;
+    }
+
+    .armazenamento-card .preco {
+      font-size: 1.11rem;
+      color: var(--branco);
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    .armazenamento-card .preco span {
+      color: var(--azul);
+      font-size: 1.23rem;
+      font-weight: 700;
+    }
+
+    .portalnet-obs {
+      background: #181c30;
+      color: #b8e5f4;
+      max-width: 720px;
+      margin: 33px auto 30px auto;
+      border-left: 5px solid var(--roxo);
+      padding: 20px 22px 15px 18px;
+      font-size: 1.08rem;
+      border-radius: 11px;
+      box-shadow: 0 2px 12px 0 rgba(138,79,255, 0.04);
+      text-align: left;
+      line-height: 1.35;
+    }
+
+    .diferenciais {
+      max-width: 740px;
+      margin: 60px auto 36px auto;
+      padding: 0 17px;
+    }
+
+    .diferenciais-titulo {
+      font-size: 1.20rem;
+      color: var(--azul);
+      font-weight: 700;
+      margin-bottom: 11px;
+      text-align: center;
+    }
+
+    .diferenciais-lista {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .diferenciais-lista li {
+      background: #20253d85;
+      border-left: 4px solid var(--roxo);
+      padding: 10px 17px 10px 13px;
+      border-radius: 6px;
+      color: #e9efff;
+      min-width: 160px;
+      margin-bottom: 8px;
+      box-shadow: 0 0.5px 7px 0 rgba(138, 79, 255, 0.07);
+      font-size: 1.01rem;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      line-height: 1.25;
+    }
+
+    .rodape {
+      background: #161925;
+      border-top: 1.8px solid #5256e7;
+      padding: 38px 24px 26px 24px;
+      color: #a5cae7;
+      text-align: center;
+      font-size: 1.03rem;
+      margin-top: 27px;
+      position: relative;
+      min-height: 100px;
+    }
+
+    .whatsapp-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: linear-gradient(90deg, #25d366 70%, #8a4fff 100%);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.09rem;
+      padding: 11px 23px;
+      border-radius: 33px;
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: filter 0.16s;
+    }
+
+    .whatsapp-link:hover {
+      filter: brightness(1.15);
+    }
+
+    .addr {
+      margin-top: 13px;
+      font-size: 0.97rem;
+      color: #d1eaff;
+    }
+
+    @media (max-width: 900px) {
+      .produtos, .armazenamento-cards { flex-direction: column; align-items: center; }
+      .produto-card, .armazenamento-card { width: 96%; min-width: 220px; }
+      .produto-titulo { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <img src="assets/img/univision.png" alt="Logo UniVision">
+    <div class="engajamento">
+      Proteja você, sua família e seu negócio com tecnologia Wi-Fi, acesso fácil e máxima tranquilidade!
+    </div>
+    <div class="botoes-hero">
+      <a href="#locacao" class="locacao">Locação</a>
+      <a href="#compra" class="comprar">Comprar</a>
+    </div>
+  </div>
+
+  <div class="produtos" id="locacao">
+    <!-- Lente Única -->
+    <div class="produto-card">
+      <div class="produto-titulo">
+        <!-- Tabler camera (estilo minimalista) - SVG inline (confiável, sem dependência externa) -->
+        <svg class="icone-produto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true" focusable="false">
+          <path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-16a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2" />
+          <path d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+        </svg>
+        Câmera Wi‑Fi <span class="destaque">Lente Única</span>
+      </div>
+
+      <div class="precos-produto">
+        <b>Locação:</b> R$ 34,90/mês <br>
+        <b id="compra">Venda:</b> R$ 220,00 <span style="font-size:0.98rem;font-weight:500;">à vista</span>
+      </div>
+
+      <div class="produto-carac">
+        - Imagem em alta definição<br>
+        - Áudio bidirecional<br>
+        - Visão noturna<br>
+        - Notificações no celular<br>
+        - Instalação e configuração assistida
+      </div>
+
+      <div class="obs-parcelado">Parcelado sujeito a taxas/juros.</div>
+    </div>
+
+    <!-- Lente Dupla -->
+    <div class="produto-card lente-dupla">
+      <div class="produto-titulo">
+        <!-- Tabler device-cctv (minimalista, segurança) - SVG inline -->
+        <svg class="icone-produto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true" focusable="false">
+          <path d="M8 13l-2 -2h-3v9h3l2 -2h10l3 -3v-4l-3 -3z" />
+          <path d="M14 13h2" />
+          <path d="M9 8v-2a2 2 0 0 1 2 -2h3" />
+          <path d="M6 19v2" />
+        </svg>
+        Câmera Wi‑Fi <span class="destaque">Lente Dupla</span>
+      </div>
+
+      <div class="precos-produto">
+        <b>Locação:</b> R$ 39,90/mês <br>
+        <b>Venda:</b> R$ 250,00 <span style="font-size:0.98rem;font-weight:500;">à vista</span>
+      </div>
+
+      <div class="produto-carac">
+        - Uma lente fixa e outra giratória (até 270°)<br>
+        - Cobre múltiplos ambientes<br>
+        - Alta definição, áudio bidirecional<br>
+        - Visão noturna, notificações<br>
+        - Instalação e configuração assistida
+      </div>
+
+      <div class="obs-parcelado">Parcelado sujeito a taxas/juros.</div>
+    </div>
+  </div>
+
+  <div class="armazenamento-titulo" id="armazenamento">Armazenamento em Nuvem (Gravações)</div>
+
+  <div class="armazenamento-cards">
+    <div class="armazenamento-card">
+      <span class="dias">3 dias</span>
+      <div class="preco"><span>R$ 14,99</span> /câmera/mês</div>
+    </div>
+
+    <div class="armazenamento-card">
+      <span class="dias">7 dias</span>
+      <div class="preco"><span>R$ 24,99</span> /câmera/mês</div>
+    </div>
+
+    <div class="armazenamento-card">
+      <span class="dias">15 dias</span>
+      <div class="preco"><span>R$ 49,99</span> /câmera/mês</div>
+    </div>
+  </div>
+
+  <div class="portalnet-obs">
+    No momento, a <b>locação</b> das câmeras e o <b>armazenamento em nuvem</b> estão disponíveis para clientes PortalNet.
+    A <b>venda das câmeras</b> pode ser feita para qualquer interessado.
+    Se você ainda não é PortalNet e deseja locação ou gravação em nuvem, fale conosco para avaliarmos a disponibilidade em sua região.
+  </div>
+
+  <div class="diferenciais">
+    <div class="diferenciais-titulo">Recursos que trazem tranquilidade para você:</div>
+    <ul class="diferenciais-lista">
+      <li><i class="fa-solid fa-mobile-screen-button"></i> Acesso fácil pelo celular e computador</li>
+      <li><i class="fa-solid fa-volume-high"></i> Áudio bidirecional</li>
+      <li><i class="fa-solid fa-moon"></i> Visão noturna automática</li>
+      <li><i class="fa-solid fa-bell"></i> Notificações de movimento</li>
+      <li><i class="fa-solid fa-wrench"></i> Instalação e suporte especializado</li>
+      <li><i class="fa-solid fa-camera"></i> Lente dupla: uma fixa e uma com giro de até 270° (mais cobertura)</li>
+    </ul>
+  </div>
+
+  <footer class="rodape">
+    <a class="whatsapp-link"
+       href="https://wa.me/5518996842555?text=Ol%C3%A1!%20Tenho%20interesse%20nas%20c%C3%A2meras%20Wi%E2%80%91Fi%20da%20UniVision%20%28loca%C3%A7%C3%A3o%20e%2Fou%20compra%29%20e%20gostaria%20de%20saber%20mais%20sobre%20grava%C3%A7%C3%A3o%20em%20nuvem."
+       target="_blank" rel="noopener">
+      <i class="fab fa-whatsapp"></i>
+      Falar no WhatsApp
+    </a>
+
+    <div class="addr">
+      <i class="fa-solid fa-location-dot"></i>
+      Praça Dr. Carlos Sampaio Filho, 163 — Penápolis/SP
+    </div>
+  </footer>
+</body>
+</html>
